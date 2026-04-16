@@ -100,9 +100,22 @@ footer {
 <body>
 
 <header>
-  <h1>Tri County Gutter</h1>
-  <p>Detroit Metro Gutter Installation & Repair</p>
+  <h1>Seamless Gutter Installation in Detroit Metro</h1>
+  <p>Fast, Affordable, Professional Gutter Services</p>
   <p><strong>248-506-9581</strong></p>
+
+  <a href="tel:2485069581" style="
+  display:inline-block;
+  margin-top:20px;
+  padding:15px 25px;
+  background:#22c55e;
+  color:white;
+  font-size:20px;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:bold;">
+  📞 Call Now: 248-506-9581
+  </a>
 </header>
 
 <nav>
@@ -120,6 +133,15 @@ footer {
     <div class="card">Gutter Cleaning</div>
     <div class="card">Gutter Guards</div>
   </div>
+</section>
+
+<section>
+  <p style="text-align:center; font-size:18px;">
+  ✔ Locally Owned  
+  ✔ Fully Insured  
+  ✔ Serving Detroit Metro  
+  ✔ Free Estimates
+  </p>
 </section>
 
 <section id="gallery">
@@ -150,7 +172,9 @@ footer {
 <section id="contact">
   <h2>Get a Free Quote</h2>
   <div class="contact-box">
-    
+    <p><strong>Same-Day Estimates Available</strong></p>
+    <p>Call now or request a quote below</p>
+
     <form onsubmit="handleSubmit(event)">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
@@ -158,13 +182,31 @@ footer {
       <textarea name="message" placeholder="Tell us about your project"></textarea>
       <button type="submit">Request Quote</button>
     </form>
-
   </div>
 </section>
 
 <footer>
   <p>Tri County Gutter • Detroit Metropolitan Area</p>
 </footer>
+
+<!-- Sticky Call Bar -->
+<div style="
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#0284c7;
+text-align:center;
+padding:15px;
+z-index:999;">
+  <a href="tel:2485069581" style="
+  color:white;
+  font-size:20px;
+  text-decoration:none;
+  font-weight:bold;">
+  📞 Call Now for a Free Estimate
+  </a>
+</div>
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox">
@@ -193,7 +235,7 @@ function handleSubmit(e) {
   e.preventDefault();
   const form = e.target;
 
-  fetch("https://formsubmit.co/ajax/YOUR-EMAIL-HERE", {
+  fetch("https://formsubmit.co/ajax/kennyhilligoss@tricountygutter.com", {
     method: "POST",
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
