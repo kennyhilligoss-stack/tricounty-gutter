@@ -230,12 +230,12 @@ lightbox.addEventListener('click', () => {
   lightbox.style.display = 'none';
 });
 
-// Contact form
+// Contact form (SECURE TOKEN ADDED)
 function handleSubmit(e) {
   e.preventDefault();
   const form = e.target;
 
-  fetch("https://formsubmit.co/ajax/kennyhilligoss@tricountygutter.com", {
+  fetch("https://formsubmit.co/ajax/c714259dc74bc21db7d257fe718f52a5", {
     method: "POST",
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
