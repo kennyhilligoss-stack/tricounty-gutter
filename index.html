@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tri County Gutter</title>
+
+<style>
+body {font-family: Arial; margin:0; background:#f8fafc;}
+
+header {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero.jpg') center/cover no-repeat;
+  color:white;
+  padding:100px 20px;
+  text-align:center;
+}
+
+nav {
+  background:#0f172a;
+  padding:15px;
+  text-align:center;
+}
+
+nav a {
+  color:white;
+  margin:0 15px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+section {padding:50px 20px; max-width:1100px; margin:auto;}
+
+h2 {text-align:center; color:#0284c7;}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card {
+  background:white;
+  padding:20px;
+  border-radius:10px;
+}
+
+.gallery img {
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* Lightbox */
+.lightbox {
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.9);
+  justify-content:center;
+  align-items:center;
+}
+
+.lightbox img {
+  max-width:90%;
+  max-height:90%;
+}
+
+.contact-box {
+  background:#e0f2fe;
+  padding:20px;
+  border-radius:10px;
+}
+
+input, textarea {
+  width:100%;
+  padding:10px;
+  margin:5px 0;
+}
+
+button {
+  background:#0284c7;
+  color:white;
+  padding:10px;
+  border:none;
+  cursor:pointer;
+}
+
+footer {
+  background:#0f172a;
+  color:white;
+  text-align:center;
+  padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Tri County Gutter</h1>
+  <p>Detroit Metro Gutter Installation & Repair</p>
+  <p><strong>248-506-9581</strong></p>
+</header>
+
+<nav>
+  <a href="#services">Services</a>
+  <a href="#gallery">Our Work</a>
+  <a href="#areas">Areas</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="grid">
+    <div class="card">Seamless Gutter Installation</div>
+    <div class="card">Gutter Repair</div>
+    <div class="card">Gutter Cleaning</div>
+    <div class="card">Gutter Guards</div>
+  </div>
+</section>
+
+<section id="gallery">
+  <h2>Our Work</h2>
+  <div class="grid gallery">
+    <img src="20250401_005510000_iOS.jpg">
+    <img src="20250401_005553000_iOS.jpg">
+    <img src="20250401_005627000_iOS.jpg">
+    <img src="20250401_005709000_iOS.jpg">
+    <img src="20250401_005732000_iOS.jpg">
+    <img src="20250401_005752000_iOS.jpg">
+    <img src="20250401_005820000_iOS.jpg">
+    <img src="20250401_005851000_iOS.jpg">
+    <img src="20250401_005910000_iOS.jpg">
+    <img src="20250401_005938000_iOS.jpg">
+    <img src="20250401_010023000_iOS.jpg">
+  </div>
+</section>
+
+<section id="areas">
+  <h2>Areas We Serve</h2>
+  <p style="text-align:center;">
+    Sterling Heights • Warren • Troy • Shelby Township • Clinton Township • Detroit
+  </p>
+  <iframe src="https://www.google.com/maps?q=Detroit%20MI&output=embed" width="100%" height="400" style="border:0; border-radius:10px;"></iframe>
+</section>
+
+<section id="contact">
+  <h2>Get a Free Quote</h2>
+  <div class="contact-box">
+    
+    <form onsubmit="handleSubmit(event)">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="phone" placeholder="Phone Number">
+      <textarea name="message" placeholder="Tell us about your project"></textarea>
+      <button type="submit">Request Quote</button>
+    </form>
+
+  </div>
+</section>
+
+<footer>
+  <p>Tri County Gutter • Detroit Metropolitan Area</p>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <img id="lightbox-img">
+</div>
+
+<script>
+// Gallery zoom
+const images = document.querySelectorAll('.gallery img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+images.forEach(img => {
+  img.addEventListener('click', () => {
+    lightbox.style.display = 'flex';
+    lightboxImg.src = img.src;
+  });
+});
+
+lightbox.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+});
+
+// Contact form
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+
+  fetch("https://formsubmit.co/ajax/YOUR-EMAIL-HERE", {
+    method: "POST",
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      message: form.message.value
+    })
+  })
+  .then(() => alert("Request sent! We'll contact you soon."))
+  .catch(() => alert("Error. Please call 248-506-9581."));
+}
+</script>
+
+</body>
+</html>
